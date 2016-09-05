@@ -9,12 +9,16 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 public class TaskManager {
+  private static Logger logger = Logger.getLogger(TaskManager.class);
+  
   private final Scheduler scheduler = new Scheduler();
   private List<Task> tasks = new ArrayList<Task>();
   
   public void addTask(Task task) {
-    
+    tasks.add(task);
   }
   
   public void removeTask(Task task) {
@@ -22,21 +26,32 @@ public class TaskManager {
   }
   
   public void startup() {
-    System.out.println("taskManager start...");
+    logger.info("taskManager start...");
     
-    for(Task task : tasks) {
-      String s1 = scheduler.schedule("* * * * *", new Runnable() {
+    for(final Task task : tasks) {
+      
+      String taskStr = scheduler.schedule(task.getSchedulePattern(),new Runnable() {
+        public void run() {
+          try {
+            task.exec();
+          } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+          }
+        }
+      });
+      logger.info(task.getName()+" is scheduled :"+taskStr);
+      /*String s1 = scheduler.schedule("* * * * *", new Runnable() {
         public void run() {
           System.out.println("schedule1 run..." + new Date());
         }
       });
-      System.out.println("s1:" + s1);
+      System.out.println("s1:" + s1);*/
       
       /*ProcessTask task = new ProcessTask("cmd.exe /c dir");
       String s2 = scheduler.schedule("* * * * *", task);
       System.out.println("s2:" + s2);*/
-      
-      String s3 = scheduler.schedule("* * * * *", new Runnable() {
+      /*String s3 = scheduler.schedule("* * * * *", new Runnable() {
         public void run() {
           try {
             System.out.println("schedule3 run..." + new Date());
@@ -51,7 +66,7 @@ public class TaskManager {
           }
         }
       });
-      System.out.println("s3:" + s3);
+      System.out.println("s3:" + s3);*/
     }
     scheduler.start();
   }

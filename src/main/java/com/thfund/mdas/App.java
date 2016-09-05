@@ -1,13 +1,12 @@
 package com.thfund.mdas;
 
-import java.io.File;
-
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.thfund.mdas.task.TaskManager;
+import com.thfund.mdas.task.impl.TestTask;
 
 
 /**
@@ -23,6 +22,8 @@ public class App {
     context = new ClassPathXmlApplicationContext(new String[] {"classpath*:*.xml"});
     
     final TaskManager taskManager = context.getBean("taskManager",TaskManager.class);
+    taskManager.addTask(new TestTask());
+    
     taskManager.startup();
     
     new Thread(new Runnable() {
