@@ -6,6 +6,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.thfund.mdas.task.TaskManager;
+import com.thfund.mdas.task.impl.HiveTask;
+import com.thfund.mdas.task.impl.ShellTask;
 import com.thfund.mdas.task.impl.TestTask;
 
 
@@ -22,7 +24,10 @@ public class App {
     context = new ClassPathXmlApplicationContext(new String[] {"classpath*:*.xml"});
     
     final TaskManager taskManager = context.getBean("taskManager",TaskManager.class);
-    taskManager.addTask(new TestTask());
+    //taskManager.addTask(new ShellTask());
+    //taskManager.addTask(new TestTask());
+    
+    taskManager.addTask(new HiveTask());
     
     taskManager.startup();
     
