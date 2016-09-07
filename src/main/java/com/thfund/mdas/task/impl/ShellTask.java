@@ -23,4 +23,9 @@ public class ShellTask implements Task{
     while ((line = bf.readLine()) != null)
       System.out.println(line);
   }
+
+  public String getDesc() {
+    // TODO Auto-generated method stub
+    return null;
+  }
 }

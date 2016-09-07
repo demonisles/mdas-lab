@@ -9,4 +9,14 @@
         class="com.thfund.mdas.task.TaskManager">
         <!-- additional collaborators and configuration for this bean go here -->
     </bean>
+    
+    <bean id="webServer"
+        class="com.thfund.mdas.jetty.WebServer">
+        <property name="taskManager" ref="taskManager"/>
+    </bean>
+    
+     <bean id="springUtil"
+        class="com.thfund.mdas.utils.SpringUtil">
+        <!-- additional collaborators and configuration for this bean go here -->
+    </bean>
 </beans>

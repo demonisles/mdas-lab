@@ -2,11 +2,7 @@ package com.thfund.mdas.task;
 
 import it.sauronsoftware.cron4j.Scheduler;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -15,8 +11,11 @@ public class TaskManager {
   private static Logger logger = Logger.getLogger(TaskManager.class);
   
   private final Scheduler scheduler = new Scheduler();
-  private List<Task> tasks = new ArrayList<Task>();
+  private final List<Task> tasks = new ArrayList<Task>();
   
+  public List<Task> getTasks() {
+    return tasks;
+  }
   public void addTask(Task task) {
     tasks.add(task);
   }
@@ -35,7 +34,6 @@ public class TaskManager {
           try {
             task.exec();
           } catch (Exception e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
           }
         }

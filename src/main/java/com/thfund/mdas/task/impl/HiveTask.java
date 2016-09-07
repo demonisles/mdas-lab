@@ -24,4 +24,9 @@ public class HiveTask implements Task {
       System.out.println(line);
   }
 
+  public String getDesc() {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
 }
