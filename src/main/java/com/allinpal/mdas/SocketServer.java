@@ -1,4 +1,4 @@
-package com.thfund.mdas;
+package com.allinpal.mdas;
 
 import java.io.DataInputStream;
 import java.io.IOException;

@@ -1,15 +1,15 @@
-package com.thfund.mdas;
+package com.allinpal.mdas;
 
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.thfund.mdas.jetty.WebServer;
-import com.thfund.mdas.task.TaskManager;
-import com.thfund.mdas.task.impl.HiveTask;
-import com.thfund.mdas.task.impl.ShellTask;
-import com.thfund.mdas.task.impl.TestTask;
+import com.allinpal.mdas.jetty.WebServer;
+import com.allinpal.mdas.task.TaskManager;
+import com.allinpal.mdas.task.impl.HiveTask;
+import com.allinpal.mdas.task.impl.ShellTask;
+import com.allinpal.mdas.task.impl.TestTask;
 
 
 /**

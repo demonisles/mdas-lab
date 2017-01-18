@@ -1,10 +1,10 @@
-package com.thfund.mdas.jetty;
+package com.allinpal.mdas.jetty;
 
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.ServerConnector;
 import org.eclipse.jetty.servlet.ServletHandler;
 
-import com.thfund.mdas.task.TaskManager;
+import com.allinpal.mdas.task.TaskManager;
 
 public class WebServer {
   private Server server;
@@ -23,7 +23,7 @@ public class WebServer {
     ServerConnector http = new ServerConnector(server);
     http.setHost("localhost");
     http.setPort(9527);
-    http.setIdleTimeout(30000);
+//    http.setIdleTimeout(30000);
     // Set the connector
     server.addConnector(http);
     ServletHandler handler = new ServletHandler();

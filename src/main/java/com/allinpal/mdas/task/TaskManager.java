@@ -1,4 +1,4 @@
-package com.thfund.mdas.task;
+package com.allinpal.mdas.task;
 
 import it.sauronsoftware.cron4j.Scheduler;
 

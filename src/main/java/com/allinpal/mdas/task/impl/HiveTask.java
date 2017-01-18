@@ -1,24 +1,14 @@
-package com.thfund.mdas.task.impl;
+package com.allinpal.mdas.task.impl;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-import com.thfund.mdas.task.Task;
+import com.allinpal.mdas.task.Task;
 
-public class TestTask implements Task {
-  
-  private String name;
-  
-  public TestTask() {
-    
-  }
-  
-  public TestTask(String name) {
-    this.name = name;
-  }
+public class HiveTask implements Task {
 
   public String getName() {
-    return name;
+    return "HiveTask";
   }
 
   public String getSchedulePattern() {
@@ -26,9 +16,8 @@ public class TestTask implements Task {
   }
 
   public void exec() throws Exception {
-    logger.info(name + " running");
     Runtime r = Runtime.getRuntime();
-    Process p = r.exec("cmd.exe /c dir");
+    Process p = r.exec("hive -f "+" ../scripts/testHive.sql");
     BufferedReader bf = new BufferedReader(new InputStreamReader(p.getInputStream()));
     String line = "";
     while ((line = bf.readLine()) != null)

@@ -1,4 +1,4 @@
-package com.thfund.mdas.jetty;
+package com.allinpal.mdas.jetty;
 
 import java.io.File;
 import java.io.IOException;
@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 
-import com.thfund.mdas.task.TaskManager;
-import com.thfund.mdas.utils.SpringUtil;
+import com.allinpal.mdas.task.TaskManager;
+import com.allinpal.mdas.utils.SpringUtil;
 
 import freemarker.template.Configuration;
 import freemarker.template.Template;

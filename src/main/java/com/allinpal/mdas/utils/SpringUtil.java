@@ -1,4 +1,4 @@
-package com.thfund.mdas.utils;
+package com.allinpal.mdas.utils;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
